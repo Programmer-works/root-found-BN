@@ -8,11 +8,11 @@ const storage = multer.diskStorage({
   },
 });
 
-const fileFilter = (req:any, file:any, cb:any) => {
+const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image/')) {
     cb(null, true);
   } else {
-    cb(new Error('Not an image! Please upload an image.'), false);
+    cb(new Error('Not an image! Please upload an pdf file.'), false);
   }
 };
 
