@@ -43,6 +43,14 @@ class MemberController {
             return errormessage(res, 500, 'Internal server error');
         }
     }
+    static async viewMembers(req,res){
+        const member = await Member.find()
+        if(member){
+            return successmessage(res,200,`members retrived successfully`,member)
+        }else{
+            return errormessage(res,400,`member not found`)
+        }
+    }
     static async viewMember(req,res){
         const memberID = req.params.id
         const member = await Member.findById(memberID)
@@ -50,6 +58,22 @@ class MemberController {
             return successmessage(res,200,`retrived member successfully`,member)
         }else{
             return errormessage(res,401,`no member found`)
+        }
+    }
+    static async deleteMember(req,res){
+        const memberID = req.params.id
+        const member = await Member.findByIdAndDelete(memberID)
+        if(member){
+            return errormessage(res,200,`member deleted succefully`)
+        }else{
+            return errormessage(res,400,`no member found by ${memberID}`)
+        }
+    }
+    static async updateMember(req,res){
+        const memberID = req.params.id
+        const member = await Member.findByIdAndUpdate(memberID,req.body,{new:true})
+        if(!member){
+            return errormessage(res,200,`member updated successfully`,member)
         }
     }
     static async Login(req,res){
