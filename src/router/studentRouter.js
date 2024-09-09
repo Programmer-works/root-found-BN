@@ -1,5 +1,5 @@
 import express from 'express';
-import StudentController from '../controller/babeClassController.js';
+import StudentController from '../controller/studentController.js';
 import upload from '../middleware/studentcloud.js';
 
 const router = express.Router();
