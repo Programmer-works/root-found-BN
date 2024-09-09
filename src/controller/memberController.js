@@ -1,4 +1,3 @@
-import express from 'express'
 import bcrypt from 'bcrypt'
 import errormessage from '../utils/errorMessage.js'
 import successmessage from '../utils/successMessage.js'

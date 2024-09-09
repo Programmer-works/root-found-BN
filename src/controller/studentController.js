@@ -1,4 +1,4 @@
-import express from 'express';
+
 import Student from '../model/students.js';
 import  errormessage  from '../utils/errorMessage.js';
 import cloudinary from '../utils/cloud.js';
