@@ -71,8 +71,10 @@ class MemberController {
     static async updateMember(req,res){
         const memberID = req.params.id
         const member = await Member.findByIdAndUpdate(memberID,req.body,{new:true})
-        if(!member){
-            return errormessage(res,200,`member updated successfully`,member)
+        if(member){
+            return successmessage(res,200,`member updated successfully`,member)
+        }else{
+            return errormessage(res,401,`member not updated`)
         }
     }
     static async Login(req,res){
