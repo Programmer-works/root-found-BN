@@ -21,10 +21,7 @@ const messageSchemas = new mongoose.Schema({
         type:String,
         required:true
     },
-    sentAt:{
-        type:Date,
-       default: new Date().setUTCMinutes()
-    },
+
 
 })
 const Message = mongoose.model('Message',messageSchemas)
